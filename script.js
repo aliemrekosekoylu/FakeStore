@@ -34,6 +34,8 @@ getData()
 .then(data =>{
     console.log(data)
 
+    let sepet = []
+
     data.forEach((urun) => {
         console.log(urun)
 
@@ -70,6 +72,15 @@ getData()
         const btn = document.createElement('a')
         btn.setAttribute('class', 'btn btn-success')
         btn.textContent = 'Add To Cart'
+
+        btn.addEventListener('click', () => {
+            console.log(urun)
+            sepet.push(urun)
+            console.log(sepet)
+
+            let sepetJSON = JSON.stringify(sepet)
+            localStorage.setItem('sepet', sepetJSON)
+        })
 
 
     cardBody.appendChild(cardTitle)
